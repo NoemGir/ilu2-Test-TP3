@@ -18,7 +18,8 @@ public class Welcome {
 			return message.toString();
 		}
 		if (input.toUpperCase().equals(input)) {
-			return message.append(input).toString().toUpperCase();
+			message.append(input);
+			return message.append(" !").toString().toUpperCase();
 		}
 		return message.append(mettrePremiereLettreMaj(input)).toString();
 	}

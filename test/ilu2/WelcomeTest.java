@@ -41,9 +41,9 @@ rappelle que deux cha�nes de caract�res peuvent �tre compar�es en utilis
 */
 	@Test
 	void test_EX_3() {
-		assertEquals("HELLO, JERRY", Welcome.welcome("JERRY"));
-		assertEquals("HELLO, BOB", Welcome.welcome("BOB"));
-		assertEquals("HELLO, M", Welcome.welcome("M"));
+		assertEquals("HELLO, JERRY !", Welcome.welcome("JERRY"));
+		assertEquals("HELLO, BOB !", Welcome.welcome("BOB"));
+		assertEquals("HELLO, M !", Welcome.welcome("M"));
 	}
 	
 	/*EX_4 : Gestion deux noms en input.
@@ -73,7 +73,39 @@ Par exemple, si on donne en entrée “Amy, bob,jerry”, alors retourner
 		assertEquals("Hello, Bob, JeanRene, A", Welcome.welcome("Bob,JeanRene,a"));
 		assertEquals("Hello, H, E, L, L, O", Welcome.welcome("H,e,L,l,O"));
 	}
+
+	/*EX_6 : Gestion des cris lorsqu’il y a plusieurs noms.
+Si un nom est écrit en majuscule, alors séparer le texte en 2 : une partie en minuscule (au
+début du message) et une partie en majuscule (à la fin, se terminant par un point
+d’exclamation), séparés par un “.”.
+Par exemple, si on a “Amy, BOB, Jerry” en entrée, alors retourner “Hello, Amy, Jerry. AND
+HELLO, BOB !”.
+ */
+	
+	@Test
+	void test_EX_6() {
+		assertEquals("Hello, Tom, Jerry, Benoit", Welcome.welcome("tom,jerry,benoit"));
+		assertEquals("Hello, Jerry, Tom, Bob, Benoit", Welcome.welcome("jerry,Tom,bob,Benoit"));
+		assertEquals("Hello, Bob, JeanRene, A", Welcome.welcome("Bob,JeanRene,a"));
+		assertEquals("Hello, H, E, L, L, O", Welcome.welcome("H,e,L,l,O"));
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
