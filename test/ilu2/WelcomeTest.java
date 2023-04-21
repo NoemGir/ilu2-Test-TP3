@@ -60,6 +60,19 @@ indice : la m�thode split() de la classe String peut vous simplifier la vie. *
 		assertEquals("Hello, M, E", Welcome.welcome("M,e"));
 	}
 	
+	/*EX_5 : Gestion de plusieurs noms en input.
+L’exigence est identique que EX_4, mais avec un nombre arbitraire supérieur à 2.
+Par exemple, si on donne en entrée “Amy, bob,jerry”, alors retourner
+“Hello, Amy, Bob, Jerry”
+ */
+	
+	@Test
+	void test_EX_5() {
+		assertEquals("Hello, Tom, Jerry, Benoit", Welcome.welcome("tom,jerry,benoit"));
+		assertEquals("Hello, Jerry, Tom, Bob, Benoit", Welcome.welcome("jerry,Tom,bob,Benoit"));
+		assertEquals("Hello, Bob, JeanRene, A", Welcome.welcome("Bob,JeanRene,a"));
+		assertEquals("Hello, H, E, L, L, O", Welcome.welcome("H,e,L,l,O"));
+	}
 }
 
 

@@ -9,15 +9,18 @@ public class Welcome {
 		}
 		if(input.contains(",")) {
 			String[] names = input.split(",");
-			String firstName = mettrePremiereLettreMaj(names[0]);
-			String secondName = mettrePremiereLettreMaj(names[1]);
-			return message.append(firstName + ", " + secondName).toString();
+			for( int i = 0; i < names.length; i++) {
+				message.append(mettrePremiereLettreMaj(names[i]));
+				message.append(", ");
+			}
+			int messageLength = message.length();
+			message.delete(messageLength-2, messageLength);
+			return message.toString();
 		}
 		if (input.toUpperCase().equals(input)) {
 			return message.append(input).toString().toUpperCase();
 		}
-
-			return message.append(mettrePremiereLettreMaj(input)).toString();
+		return message.append(mettrePremiereLettreMaj(input)).toString();
 	}
 
 	private static String mettrePremiereLettreMaj(String nom) {
@@ -26,5 +29,4 @@ public class Welcome {
 		StringBuilder resultat = new StringBuilder(firstLetter.toUpperCase());
 		return resultat.append(restOfWord).toString();
 	}
-
 }
