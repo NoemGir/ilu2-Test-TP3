@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 class WelcomeTest {
 	
 	/* EX_1 : Hello, Bob
-La fonction prend en paramètre un nom (une chaîne de caractère) et retourne la chaîne
-“Hello, <nom>”.
-Par exemple, si on lui passe “bob”, elle retourne “Hello, Bob” (à noter, la majuscule sur le
+La fonction prend en paramï¿½tre un nom (une chaï¿½ne de caractï¿½re) et retourne la chaï¿½ne
+ï¿½Hello, <nom>ï¿½.
+Par exemple, si on lui passe ï¿½bobï¿½, elle retourne ï¿½Hello, Bobï¿½ (ï¿½ noter, la majuscule sur le
 nom). */
 
 	@Test
@@ -19,11 +19,11 @@ nom). */
 		assertEquals("Hello, M", Welcome.welcome("m") );
 	}
 	
-	/*EX_2 : Gestion des null et des chaînes vides
-Si on passe en paramètre une chaîne de caractère vide, nulle ou blanche (que des
-espaces), alors retourner “Hello, my friend”.
-Par exemple, si on lui passe “ “, elle retourne “Hello, my friend”.
-Indice : la méthode “trim()” de la classe String peut vous simplifier la vie */
+	/*EX_2 : Gestion des null et des chaï¿½nes vides
+Si on passe en paramï¿½tre une chaï¿½ne de caractï¿½re vide, nulle ou blanche (que des
+espaces), alors retourner ï¿½Hello, my friendï¿½.
+Par exemple, si on lui passe ï¿½ ï¿½, elle retourne ï¿½Hello, my friendï¿½.
+Indice : la mï¿½thode ï¿½trim()ï¿½ de la classe String peut vous simplifier la vie */
 	
 	@Test
 	void test_EX_2() {
@@ -33,11 +33,11 @@ Indice : la méthode “trim()” de la classe String peut vous simplifier la vie */
 	}
 	
 	/* EX_3 : Gestion des cris
-Si on donne une chaîne de caractères en majuscule, alors répondre en majuscule, et
-terminer par un point d’exclamation.
-Par exemple, si on donne “JERRY”, alors retourner “HELLO, JERRY !”
-indice : la méthode “toUpperCase()” de la classe String peut vous simplifier la vie. On
-rappelle que deux chaînes de caractères peuvent être comparées en utilisant equals.
+Si on donne une chaï¿½ne de caractï¿½res en majuscule, alors rï¿½pondre en majuscule, et
+terminer par un point dï¿½exclamation.
+Par exemple, si on donne ï¿½JERRYï¿½, alors retourner ï¿½HELLO, JERRY !ï¿½
+indice : la mï¿½thode ï¿½toUpperCase()ï¿½ de la classe String peut vous simplifier la vie. On
+rappelle que deux chaï¿½nes de caractï¿½res peuvent ï¿½tre comparï¿½es en utilisant equals.
 */
 	@Test
 	void test_EX_3() {
@@ -47,16 +47,17 @@ rappelle que deux chaînes de caractères peuvent être comparées en utilisant equa
 	}
 	
 	/*EX_4 : Gestion deux noms en input.
-Si on donne en entrée une chaîne composée de 2 noms séparés par des virgules, alors
-répondre “Hello, <Nom1>, <Nom2>”.
-Par exemple, si on donne en entrée “amy,bob”, alors retourner “Hello, Amy, Bob”
-indice : la méthode split() de la classe String peut vous simplifier la vie. */
+Si on donne en entrï¿½e une chaï¿½ne composï¿½e de 2 noms sï¿½parï¿½s par des virgules, alors
+rï¿½pondre ï¿½Hello, <Nom1>, <Nom2>ï¿½.
+Par exemple, si on donne en entrï¿½e ï¿½amy,bobï¿½, alors retourner ï¿½Hello, Amy, Bobï¿½
+indice : la mï¿½thode split() de la classe String peut vous simplifier la vie. */
+
 	@Test
-	
 	void test_EX_4() {
 		assertEquals("Hello, Tom, Jerry", Welcome.welcome("tom,jerry"));
-		assertEquals("Hello, my friend", Welcome.welcome("BOB"));
-		assertEquals("Hello, my friend", Welcome.welcome("BOB"));
+		assertEquals("Hello, Jerry, Tom", Welcome.welcome("jerry,Tom"));
+		assertEquals("Hello, Bob, JeanRene", Welcome.welcome("Bob,JeanRene"));
+		assertEquals("Hello, M, E", Welcome.welcome("M,e"));
 	}
 	
 }

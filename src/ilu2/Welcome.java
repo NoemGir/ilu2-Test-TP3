@@ -9,19 +9,18 @@ public class Welcome {
 		}
 		if(input.contains(",")) {
 			String[] names = input.split(",");
-			String firstName = names[0];
-			String secondName = names[1];
+			String firstName = mettrePremiereLettreMaj(names[0]);
+			String secondName = mettrePremiereLettreMaj(names[1]);
 			return message.append(firstName + ", " + secondName).toString();
 		}
 		if (input.toUpperCase().equals(input)) {
 			return message.append(input).toString().toUpperCase();
 		}
-			String firstLetter = input.substring(0, 1);
-			String restOfWord = input.substring(1, input.length());
-			return message.append(firstLetter.toUpperCase() + restOfWord).toString();
+
+			return message.append(mettrePremiereLettreMaj(input)).toString();
 	}
-	// utiliser cette fonction au dessus
-	private String mettrePremiereLettreMaj(String nom) {
+
+	private static String mettrePremiereLettreMaj(String nom) {
 		String firstLetter = nom.substring(0, 1);
 		String restOfWord = nom.substring(1, nom.length());
 		StringBuilder resultat = new StringBuilder(firstLetter.toUpperCase());
