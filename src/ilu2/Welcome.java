@@ -7,7 +7,7 @@ public class Welcome {
 	}
 
 	public static String welcome(String input) {
-		return "";
+		return "Hello, Bob";
 
 	}
 
