@@ -17,7 +17,6 @@ nom). */
 		assertEquals("Hello, Bob", Welcome.welcome("Bob") );
 		assertEquals("Hello, Bob", Welcome.welcome("bob") );
 		assertEquals("Hello, M", Welcome.welcome("m") );
-		assertEquals("Hello, M", Welcome.welcome("M") );
 	}
 	
 	/*EX_2 : Gestion des null et des chaînes vides
@@ -28,10 +27,22 @@ Indice : la méthode “trim()” de la classe String peut vous simplifier la vie */
 	
 	@Test
 	void test_EX_2() {
-		assertEquals(Welcome.welcome("   "), "Hello, my friend");
-		assertEquals(Welcome.welcome(""), "Hello, my friend");
-		assertEquals(Welcome.welcome(null), "Hello, my friend");
+		assertEquals("Hello, my friend",Welcome.welcome("   "));
+		assertEquals( "Hello, my friend",Welcome.welcome(""));
+		assertEquals("Hello, my friend",Welcome.welcome(null));
 	}
 	
-
+	/* EX_3 : Gestion des cris
+Si on donne une chaîne de caractères en majuscule, alors répondre en majuscule, et
+terminer par un point d’exclamation.
+Par exemple, si on donne “JERRY”, alors retourner “HELLO, JERRY !”
+indice : la méthode “toUpperCase()” de la classe String peut vous simplifier la vie. On
+rappelle que deux chaînes de caractères peuvent être comparées en utilisant equals.
+*/
+	@Test
+	void test_EX_3() {
+		assertEquals("HELLO, JERRY", Welcome.welcome("JERRY"));
+		assertEquals("HELLO, BOB", Welcome.welcome("BOB"));
+		assertEquals("HELLO, M", Welcome.welcome("M"));
+	}
 }
