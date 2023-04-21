@@ -4,10 +4,12 @@ public class Welcome {
 
 	public static String welcome(String input) {
 		StringBuilder message = new StringBuilder("Hello, ");
-		if(input == null || input.trim().equals("")) {
-			return message.append("my friend").toString();
-		}
-		return message.append("Bob").toString();
+	//	if(input == null || input.trim().equals("")) {
+	//		return message.append("my friend").toString();
+	//	}
+			String firstLetter = input.substring(0, 1);
+			String restOfWord = input.substring(1, input.length());
+			return message.append(firstLetter.toUpperCase() + restOfWord).toString();
 	}
 
 }
