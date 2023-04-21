@@ -28,7 +28,7 @@ Indice : la méthode “trim()” de la classe String peut vous simplifier la vie */
 	@Test
 	void test_EX_2() {
 		assertEquals("Hello, my friend",Welcome.welcome("   "));
-		assertEquals( "Hello, my friend",Welcome.welcome(""));
+		assertEquals("Hello, my friend",Welcome.welcome(""));
 		assertEquals("Hello, my friend",Welcome.welcome(null));
 	}
 	
@@ -45,4 +45,29 @@ rappelle que deux chaînes de caractères peuvent être comparées en utilisant equa
 		assertEquals("HELLO, BOB", Welcome.welcome("BOB"));
 		assertEquals("HELLO, M", Welcome.welcome("M"));
 	}
+	
+	/*EX_4 : Gestion deux noms en input.
+Si on donne en entrée une chaîne composée de 2 noms séparés par des virgules, alors
+répondre “Hello, <Nom1>, <Nom2>”.
+Par exemple, si on donne en entrée “amy,bob”, alors retourner “Hello, Amy, Bob”
+indice : la méthode split() de la classe String peut vous simplifier la vie. */
+	@Test
+	
+	void test_EX_4() {
+		assertEquals("Hello, Tom, Jerry", Welcome.welcome("tom,jerry"));
+		assertEquals("Hello, my friend", Welcome.welcome("BOB"));
+		assertEquals("Hello, my friend", Welcome.welcome("BOB"));
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
