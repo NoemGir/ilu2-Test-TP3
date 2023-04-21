@@ -57,7 +57,6 @@ indice : la m�thode split() de la classe String peut vous simplifier la vie. *
 		assertEquals("Hello, Tom, Jerry", Welcome.welcome("tom,jerry"));
 		assertEquals("Hello, Jerry, Tom", Welcome.welcome("jerry,Tom"));
 		assertEquals("Hello, Bob, JeanRene", Welcome.welcome("Bob,JeanRene"));
-		assertEquals("Hello, M, E", Welcome.welcome("M,e"));
 	}
 	
 	/*EX_5 : Gestion de plusieurs noms en input.
@@ -71,7 +70,6 @@ Par exemple, si on donne en entrée “Amy, bob,jerry”, alors retourner
 		assertEquals("Hello, Tom, Jerry, Benoit", Welcome.welcome("tom,jerry,benoit"));
 		assertEquals("Hello, Jerry, Tom, Bob, Benoit", Welcome.welcome("jerry,Tom,bob,Benoit"));
 		assertEquals("Hello, Bob, JeanRene, A", Welcome.welcome("Bob,JeanRene,a"));
-		assertEquals("Hello, H, E, L, L, O", Welcome.welcome("H,e,L,l,O"));
 	}
 
 	/*EX_6 : Gestion des cris lorsqu’il y a plusieurs noms.
@@ -84,10 +82,10 @@ HELLO, BOB !”.
 	
 	@Test
 	void test_EX_6() {
-		assertEquals("Hello, Tom, Jerry, Benoit", Welcome.welcome("tom,jerry,benoit"));
-		assertEquals("Hello, Jerry, Tom, Bob, Benoit", Welcome.welcome("jerry,Tom,bob,Benoit"));
-		assertEquals("Hello, Bob, JeanRene, A", Welcome.welcome("Bob,JeanRene,a"));
-		assertEquals("Hello, H, E, L, L, O", Welcome.welcome("H,e,L,l,O"));
+		assertEquals("Hello, Jerry, Benoit. AND HELLO, TOM !", Welcome.welcome("TOM,jerry,benoit"));
+		assertEquals("Hello, Jerry, Benoit. AND HELLO, TOM, BOB !", Welcome.welcome("jerry,TOM,BOB,Benoit"));
+		assertEquals("Hello, E, L, O. AND HELLO, H, L !", Welcome.welcome("H,e,L,l,o"));
+		assertEquals("Hello, E. AND HELLO, M !", Welcome.welcome("M,e"));
 	}
 	
 }
