@@ -105,12 +105,11 @@ AND HELLO, AMY AND JACK !”*/
 Les espaces inutiles dans la chaîne passée en paramètre doivent être ignorés.
 Par exemple, si on donne en entrée “bob , amy ”, alors répondre “Hello, Bob and Amy”*/
 	
-	/*@Test
+	@Test
 	void test_EX_8() {
-		assertEquals("Hello, Bob, Amy and Jerry", Welcome.welcome("bob, amy, jerry"));
-		assertEquals("Hello, Bob and Jerry. AND HELLO, AMY AND JACK !", Welcome.welcome("bob, AMY, jerry, JACK"));
-		assertEquals("Hello, E, L and O. AND HELLO, H AND L !", Welcome.welcome("H,e,L,l,o"));
-	}*/
+		assertEquals("Hello, Bob, Amy and Jerry", Welcome.welcome("   bob,   amy,  jerry"));
+		assertEquals("Hello, Bob and Jerry. AND HELLO, AMY AND JACK !", Welcome.welcome(" bob  , AMY,  jerry, JACK "));
+	}
 }
 
 
