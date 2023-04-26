@@ -16,6 +16,7 @@ public class Welcome {
 			//cas ou il y au moins un nom en majuscule
 			return casMajuscule(message,messageUpperCase,input).toString();
 		}
+		System.out.println("nouveau message 3 : " + message);
 		return message.toString();
 	}
 	/* la fonction triDesPrenoms met les prenoms dans le StringBuilder associé ( en fonction des majuscule ) 
@@ -23,6 +24,7 @@ public class Welcome {
 	private static boolean triDesPrenoms(String[] names, StringBuilder message, StringBuilder messageUpperCase) {
 		boolean hasUpperCase = false;
 		for (int i = 0; i < names.length; i++) {
+			names[i] = names[i].trim();
 			if (names[i].toUpperCase().equals(names[i])) {
 				ajoutPrenom(messageUpperCase,names[i]);
 				hasUpperCase = true;
@@ -30,8 +32,29 @@ public class Welcome {
 				ajoutPrenom(message, names[i]);
 			}
 		}
+		retirerDerniereVirgule(messageUpperCase);
 		retirerDerniereVirgule(message);
+		ajouterAnd(messageUpperCase);
+		ajouterAnd(message);
 		return hasUpperCase;
+	}
+	
+	private static void ajouterAnd(StringBuilder message) {
+		String[] separation = message.toString().split("(?<=,)");
+		if(separation.length > 2) {
+			StringBuilder avantDernierNom = new StringBuilder(separation[separation.length-2]);
+			//retirer la virgule
+			int length = avantDernierNom.length();
+			avantDernierNom.delete(length-1, length);
+			//ajouter and
+			avantDernierNom.append(" and");
+			//reassambler message
+			separation[separation.length-2]=avantDernierNom.toString();
+			message.setLength(0);
+			for(int i = 0; i < separation.length; i++) {
+				message.append(separation[i]);	
+			}
+		}
 	}
 
 	private static void ajoutPrenom(StringBuilder message, String nom) {
@@ -40,12 +63,11 @@ public class Welcome {
 	}
 	
 	private static StringBuilder casMajuscule(StringBuilder message,StringBuilder messageUpperCase, String input) {
-		retirerDerniereVirgule(messageUpperCase);
 		messageUpperCase.append(" !");
 		// cas ou plusieurs nom son donnés dont l'un est une majuscule
 		if (input.contains(",")) {
 			message.append(". AND ");
-			return message.append(messageUpperCase);
+			return message.append(messageUpperCase.toString().toUpperCase());
 		}
 		// cas ou juste un nom a été donné
 		return messageUpperCase;

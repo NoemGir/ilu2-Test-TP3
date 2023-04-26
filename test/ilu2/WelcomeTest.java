@@ -54,9 +54,9 @@ indice : la m�thode split() de la classe String peut vous simplifier la vie. *
 
 	@Test
 	void test_EX_4() {
-		assertEquals("Hello, Tom, Jerry", Welcome.welcome("tom,jerry"));
-		assertEquals("Hello, Jerry, Tom", Welcome.welcome("jerry,Tom"));
-		assertEquals("Hello, Bob, JeanRene", Welcome.welcome("Bob,JeanRene"));
+		assertEquals("Hello, Tom and Jerry", Welcome.welcome("tom, jerry"));
+		assertEquals("Hello, Jerry and Tom", Welcome.welcome("jerry, Tom"));
+		assertEquals("Hello, Bob and JeanRene", Welcome.welcome("Bob, JeanRene"));
 	}
 	
 	/*EX_5 : Gestion de plusieurs noms en input.
@@ -67,9 +67,9 @@ Par exemple, si on donne en entrée “Amy, bob,jerry”, alors retourner
 	
 	@Test
 	void test_EX_5() {
-		assertEquals("Hello, Tom, Jerry, Benoit", Welcome.welcome("tom,jerry,benoit"));
-		assertEquals("Hello, Jerry, Tom, Bob, Benoit", Welcome.welcome("jerry,Tom,bob,Benoit"));
-		assertEquals("Hello, Bob, JeanRene, A", Welcome.welcome("Bob,JeanRene,a"));
+		assertEquals("Hello, Tom, Jerry and Benoit", Welcome.welcome("tom, jerry, benoit"));
+		assertEquals("Hello, Jerry, Tom, Bob and Benoit", Welcome.welcome("jerry, Tom, bob, Benoit"));
+		assertEquals("Hello, Bob, JeanRene and A", Welcome.welcome("Bob, JeanRene, a"));
 	}
 
 	/*EX_6 : Gestion des cris lorsqu’il y a plusieurs noms.
@@ -82,12 +82,35 @@ HELLO, BOB !”.
 	
 	@Test
 	void test_EX_6() {
-		assertEquals("Hello, Jerry, Benoit. AND HELLO, TOM !", Welcome.welcome("TOM,jerry,benoit"));
-		assertEquals("Hello, Jerry, Benoit. AND HELLO, TOM, BOB !", Welcome.welcome("jerry,TOM,BOB,Benoit"));
-		assertEquals("Hello, E, L, O. AND HELLO, H, L !", Welcome.welcome("H,e,L,l,o"));
-		assertEquals("Hello, E. AND HELLO, M !", Welcome.welcome("M,e"));
+		assertEquals("Hello, Jerry and Benoit. AND HELLO, TOM !", Welcome.welcome("TOM, jerry, benoit"));
+		assertEquals("Hello, Jerry and Benoit. AND HELLO, TOM AND BOB !", Welcome.welcome("jerry, TOM, BOB, Benoit"));
+		assertEquals("Hello, E, L and O. AND HELLO, H AND L !", Welcome.welcome("H, e, L, l, o"));
+		assertEquals("Hello, E. AND HELLO, M !", Welcome.welcome("M, e"));
 	}
 	
+/*EX_7 : Gestion des listes de noms en ajoutant un “and” pour le dernier nom.
+Le dernier nom d’une liste doit être précédé d’un “and” dans le message :
+Par exemple, si on donne “bob, amy, jerry” alors retourner “Hello, Bob, Amy and Jerry”.
+Autre exemple, si on donne “bob, AMY, jerry, JACK” alors retourner “Hello, Bob and Jerry.
+AND HELLO, AMY AND JACK !”*/
+	
+	@Test
+	void test_EX_7() {
+		assertEquals("Hello, Bob, Amy and Jerry", Welcome.welcome("bob, amy, jerry"));
+		assertEquals("Hello, Bob and Jerry. AND HELLO, AMY AND JACK !", Welcome.welcome("bob, AMY, jerry, JACK"));
+		assertEquals("Hello, E, L and O. AND HELLO, H AND L !", Welcome.welcome("H,e,L,l,o"));
+	}
+	
+	/*EX_8 : Supprimer les espaces inutiles.
+Les espaces inutiles dans la chaîne passée en paramètre doivent être ignorés.
+Par exemple, si on donne en entrée “bob , amy ”, alors répondre “Hello, Bob and Amy”*/
+	
+	/*@Test
+	void test_EX_8() {
+		assertEquals("Hello, Bob, Amy and Jerry", Welcome.welcome("bob, amy, jerry"));
+		assertEquals("Hello, Bob and Jerry. AND HELLO, AMY AND JACK !", Welcome.welcome("bob, AMY, jerry, JACK"));
+		assertEquals("Hello, E, L and O. AND HELLO, H AND L !", Welcome.welcome("H,e,L,l,o"));
+	}*/
 }
 
 
