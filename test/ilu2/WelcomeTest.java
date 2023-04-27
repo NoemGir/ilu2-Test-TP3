@@ -86,6 +86,7 @@ HELLO, BOB !”.
 		assertEquals("Hello, Jerry and Benoit. AND HELLO, TOM AND BOB !", Welcome.welcome("jerry, TOM, BOB, Benoit"));
 		assertEquals("Hello, E, L and O. AND HELLO, H AND L !", Welcome.welcome("H, e, L, l, o"));
 		assertEquals("Hello, E. AND HELLO, M !", Welcome.welcome("M, e"));
+		assertEquals("HELLO, ETHAN, RENE AND JEANLUC !", Welcome.welcome("ETHAN, RENE, JEANLUC"));
 	}
 	
 /*EX_7 : Gestion des listes de noms en ajoutant un “and” pour le dernier nom.
@@ -129,6 +130,20 @@ privée qui fait l’affichage proprement dit.
 		assertEquals("Hello, Bob(x15)", Welcome.welcome(" bob, bob, bob, bob, Bob, Bob, bob, Bob, Bob, bob, bob ,bob, bob, bob, bob"));
 		assertEquals("Hello, Hello(x3). AND HELLO, HELLO(x2) !", Welcome.welcome(" hello, hello, HELLO, Hello, HELLO"));
 		assertEquals("Hello, H(x2), B(x2) and C(x2). AND HELLO, H(x2) !", Welcome.welcome(" h, H, b, H, b, c  , c, h"));
+	}
+	
+	/*EX_10 : Yoda
+S’il y a le nom Yoda dans la liste des noms, alors inverser la liste des noms et le mot Hello.
+Par exemple, si on donne “bob, yoda, amy, JERRY”, alors répondre “Bob, Yoda, and Amy,
+Hello. AND HELLO JERRY”
+Autre exemple : si on donne “bob, YODA, amy, JERRY, YODA”, alors répondre “Hello, Bob
+and Amy. AND YODA (X2) AND JERRY HELLO !”*/
+	
+	@Test
+	void test_EX_10() {
+		assertEquals("Bob, Yoda and Amy, Hello. AND HELLO, JERRY !", Welcome.welcome("bob, yoda, amy, JERRY"));
+		assertEquals("Hello, Bob and Amy. AND YODA(x2) AND JERRY, HELLO !", Welcome.welcome("bob, YODA, amy, JERRY, YODA"));
+		assertEquals("Hello, Yodam and Yodak. AND YODA(x2) AND YODAR, HELLO !", Welcome.welcome("Yodam, YODA, Yodak, YODAR, YODA"));
 	}
 }
 
